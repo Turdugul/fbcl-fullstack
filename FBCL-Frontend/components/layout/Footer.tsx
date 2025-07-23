@@ -27,16 +27,16 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-primary-900 text-white">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
           {/* Logo and Description */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <BookOpen className="h-8 w-8 text-primary-400" />
-              <span className="text-xl font-bold">FBCL</span>
+            <Link href="/" className="flex items-center space-x-3 mb-6">
+              <BookOpen className="h-10 w-10 text-warm" />
+              <span className="text-2xl font-elegant-heading">FBCL</span>
             </Link>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-6 font-elegant-body leading-relaxed">
               Supporting literacy and community engagement through the Friern Barnet Community Library. 
               Join us in fostering a love for reading and learning.
             </p>
@@ -45,7 +45,7 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-gray-400 hover:text-primary-400 transition-colors hover-scale"
+                  className="text-gray-400 hover:text-warm transition-colors hover-scale p-2"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
@@ -56,13 +56,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-elegant-heading mb-6">Quick Links</h3>
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors"
+                    className="text-gray-300 hover:text-warm transition-colors font-elegant-body text-sm"
                   >
                     {link.name}
                   </Link>
@@ -73,29 +73,29 @@ export default function Footer() {
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-primary-400" />
-                <span className="text-gray-300">
+            <h3 className="text-lg font-elegant-heading mb-6">Contact Us</h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-5 w-5 text-warm mt-0.5" />
+                <span className="text-gray-300 font-elegant-body text-sm leading-relaxed">
                   Friern Barnet Rd<br />
                   London N11 3DS
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-primary-400" />
+                <Phone className="h-5 w-5 text-warm" />
                 <a 
                   href="tel:+44-20-8361-0174" 
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                  className="text-gray-300 hover:text-warm transition-colors font-elegant-body text-sm"
                 >
                   020 8361 0174
                 </a>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-primary-400" />
+                <Mail className="h-5 w-5 text-warm" />
                 <a 
                   href="mailto:fbcllibrary15@gmail.com" 
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                  className="text-gray-300 hover:text-warm transition-colors font-elegant-body text-sm"
                 >
                   fbcllibrary15@gmail.com
                 </a>
@@ -105,8 +105,8 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Library Hours</h3>
-            <div className="space-y-2 text-gray-300">
+            <h3 className="text-lg font-elegant-heading mb-6">Library Hours</h3>
+            <div className="space-y-3 text-gray-300 font-elegant-body text-sm">
               <div className="flex justify-between">
                 <span>Monday - Friday</span>
                 <span>12:00 PM - 6:00 PM</span>
@@ -124,16 +124,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 py-6">
+        <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm font-elegant-body">
               © {new Date().getFullYear()} Friends of the Friern Barnet Community Library. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+            <div className="flex space-x-8 mt-4 md:mt-0">
+              <Link href="/privacy" className="text-gray-400 hover:text-warm text-sm transition-colors font-elegant-body">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+              <Link href="/terms" className="text-gray-400 hover:text-warm text-sm transition-colors font-elegant-body">
                 Terms of Service
               </Link>
             </div>

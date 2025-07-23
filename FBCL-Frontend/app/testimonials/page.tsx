@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Star, Quote } from 'lucide-react'
 import { Button, Card } from '@/components/ui'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Testimonials',
@@ -98,7 +99,7 @@ export default function TestimonialsPage() {
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl text-secondary-400 md:text-6xl font-bold mb-6">
               What Our Community Says
             </h1>
             <p className="text-xl text-gray-100 mb-8">
@@ -271,7 +272,7 @@ export default function TestimonialsPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl text-secondary-400  md:text-4xl font-bold mb-4">
               Join Our Community
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
@@ -280,10 +281,14 @@ export default function TestimonialsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary">
-                Volunteer With Us
+              <Link href="/volunteer">
+              Volunteer With Us
+                  </Link>
               </Button>
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary-600">
-                Make a Donation
+              <Link href="/donate">
+              Make a Donation
+                  </Link>
               </Button>
             </div>
           </div>

@@ -1,8 +1,9 @@
 {
-  "/hire-us/page": "app/hire-us/page.js",
-  "/page": "app/page.js",
-  "/testimonials/page": "app/testimonials/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/contact/page": "app/contact/page.js",
+  "/trustees/page": "app/trustees/page.js",
+  "/hire-us/page": "app/hire-us/page.js",
   "/about/page": "app/about/page.js",
-  "/volunteer/apply/page": "app/volunteer/apply/page.js"
+  "/testimonials/page": "app/testimonials/page.js",
+  "/page": "app/page.js"
 }

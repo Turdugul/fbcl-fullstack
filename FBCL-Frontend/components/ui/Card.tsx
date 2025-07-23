@@ -8,12 +8,12 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'default', children, ...props }, ref) => {
-    const baseClasses = 'rounded-lg transition-all duration-200'
+    const baseClasses = 'rounded-none transition-all duration-300 relative overflow-hidden group'
     
     const variants = {
-      default: 'bg-white shadow-sm hover:shadow-md',
-      elevated: 'bg-white shadow-lg hover:shadow-xl',
-      outlined: 'bg-white border border-gray-200 hover:border-gray-300'
+      default: 'bg-white border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md hover:transform hover:scale-105',
+      elevated: 'bg-white border border-gray-200 shadow-md hover:shadow-lg hover:transform hover:scale-105',
+      outlined: 'bg-white border border-gray-200 hover:border-gray-300 hover:transform hover:scale-105'
     }
     
     return (
@@ -26,7 +26,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         {...props}
       >
-        {children}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-50/5 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+        <div className="relative z-10">
+          {children}
+        </div>
       </div>
     )
   }

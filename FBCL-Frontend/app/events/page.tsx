@@ -1,11 +1,11 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Calendar, Clock, MapPin, Users, ArrowRight } from 'lucide-react'
+import { Calendar, Clock, MapPin, Users, ArrowRight, Star, Quote } from 'lucide-react'
 import { Button, Card, Input } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Events',
-  description: 'Discover upcoming events and programs at the Bay Community Library. From story time to author readings, there\'s something for everyone.',
+  description: 'Discover upcoming events and programs at the Friern Barnet Community Library. From story time to author readings, there\'s something for everyone.',
 }
 
 const upcomingEvents = [
@@ -19,6 +19,7 @@ const upcomingEvents = [
     image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop',
     category: 'Reading Program',
     attendees: 45,
+    rating: 5,
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ const upcomingEvents = [
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
     category: 'Author Event',
     attendees: 30,
+    rating: 5,
   },
   {
     id: 3,
@@ -41,6 +43,7 @@ const upcomingEvents = [
     image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     category: 'Children',
     attendees: 20,
+    rating: 5,
   },
   {
     id: 4,
@@ -52,6 +55,7 @@ const upcomingEvents = [
     image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop',
     category: 'Book Club',
     attendees: 15,
+    rating: 5,
   },
   {
     id: 5,
@@ -63,6 +67,7 @@ const upcomingEvents = [
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop',
     category: 'Workshop',
     attendees: 12,
+    rating: 5,
   },
   {
     id: 6,
@@ -74,6 +79,7 @@ const upcomingEvents = [
     image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop',
     category: 'Teen Program',
     attendees: 18,
+    rating: 5,
   },
 ]
 
@@ -85,6 +91,7 @@ const pastEvents = [
     description: 'Our annual spring book sale was a huge success! We raised over $2,000 for library programs.',
     image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop',
     attendees: 150,
+    rating: 5,
   },
   {
     id: 8,
@@ -93,6 +100,7 @@ const pastEvents = [
     description: 'Local poets shared their work in an intimate evening of poetry and community.',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
     attendees: 35,
+    rating: 5,
   },
   {
     id: 9,
@@ -101,8 +109,21 @@ const pastEvents = [
     description: 'Families enjoyed an evening of board games, puzzles, and friendly competition.',
     image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
     attendees: 60,
+    rating: 5,
   },
 ]
+
+const featuredEvent = {
+  title: "Community Reading Festival",
+  date: "September 15, 2024",
+  time: "10:00 AM - 6:00 PM",
+  location: "Library Grounds",
+  description: "Our biggest event of the year! Join us for a day filled with author readings, children's activities, book signings, live music, and community celebration. This annual festival brings together readers of all ages to celebrate the joy of literature and the power of community.",
+  image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
+  category: "Special Event",
+  attendees: 200,
+  rating: 5,
+}
 
 const categories = ['All', 'Reading Program', 'Author Event', 'Children', 'Book Club', 'Workshop', 'Teen Program']
 
@@ -113,18 +134,89 @@ export default function EventsPage() {
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl text-secondary-400 font-bold mb-6">
               Library Events
             </h1>
             <p className="text-xl text-gray-100 mb-8">
-              Discover exciting programs, workshops, and community gatherings at the Bay Community Library.
+              Discover exciting programs, workshops, and community gatherings at the Friern Barnet Community Library.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Upcoming Events */}
+      {/* Featured Event */}
       <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Featured Event
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Don't miss our biggest community celebration of the year - the annual Reading Festival!
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <Card className="animate-fade-in p-8" style={{ animationDelay: '0.2s' }}>
+              <div className="flex justify-center mb-6">
+                {[...Array(featuredEvent.rating)].map((_, i) => (
+                  <Star key={i} className="h-6 w-6 text-secondary-500 fill-current" />
+                ))}
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-primary-100 text-primary-800 text-sm font-medium rounded-full">
+                      {featuredEvent.category}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{featuredEvent.title}</h3>
+                  
+                  <div className="space-y-3 mb-6 text-gray-600">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-5 w-5 text-primary-600" />
+                      <span>{featuredEvent.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-5 w-5 text-primary-600" />
+                      <span>{featuredEvent.time}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary-600" />
+                      <span>{featuredEvent.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="h-5 w-5 text-primary-600" />
+                      <span>{featuredEvent.attendees} expected attendees</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    {featuredEvent.description}
+                  </p>
+                  
+                  <Button className="inline-flex items-center">
+                    Register Now
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+                
+                <div>
+                  <img
+                    src={featuredEvent.image}
+                    alt={featuredEvent.title}
+                    className="w-full h-64 md:h-80 object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Events */}
+      <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -139,19 +231,27 @@ export default function EventsPage() {
             {upcomingEvents.map((event, index) => (
               <Card
                 key={event.id}
-                className="group animate-fade-in hover-lift"
+                className="animate-fade-in hover-lift p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
+                <div className="flex justify-center mb-4">
+                  {[...Array(event.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-secondary-500 fill-current" />
+                  ))}
+                </div>
+                
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-200"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
                 />
+                
                 <div className="flex items-center gap-2 mb-3">
                   <span className="px-3 py-1 bg-primary-100 text-primary-800 text-sm font-medium rounded-full">
                     {event.category}
                   </span>
                 </div>
+                
                 <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
                 
                 <div className="space-y-2 mb-4 text-sm text-gray-600">
@@ -185,12 +285,64 @@ export default function EventsPage() {
         </div>
       </section>
 
+      {/* Event Statistics */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl text-secondary-400  md:text-4xl font-bold mb-4">
+              Our Events by the Numbers
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              The impact of our events is measured in community engagement and learning opportunities.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.1s' }}>
+              <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                50+
+              </div>
+              <div className="text-gray-600 font-medium">
+                Events Per Year
+              </div>
+            </Card>
+            
+            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.2s' }}>
+              <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                2,500+
+              </div>
+              <div className="text-gray-600 font-medium">
+                Annual Attendees
+              </div>
+            </Card>
+            
+            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.3s' }}>
+              <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                95%
+              </div>
+              <div className="text-gray-600 font-medium">
+                Satisfaction Rate
+              </div>
+            </Card>
+            
+            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.4s' }}>
+              <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
+                6
+              </div>
+              <div className="text-gray-600 font-medium">
+                Event Categories
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Past Events */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Past Events
+              Recent Success Stories
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Take a look at some of our recent successful events and community gatherings.
@@ -201,13 +353,19 @@ export default function EventsPage() {
             {pastEvents.map((event, index) => (
               <Card
                 key={event.id}
-                className="group animate-fade-in hover-lift"
+                className="animate-fade-in hover-lift p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
+                <div className="flex justify-center mb-4">
+                  {[...Array(event.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-secondary-500 fill-current" />
+                  ))}
+                </div>
+                
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-200"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
                 />
                 <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
                 <div className="text-sm text-gray-600 mb-3">
@@ -236,7 +394,7 @@ export default function EventsPage() {
             {categories.map((category, index) => (
               <Card
                 key={category}
-                className="text-center group hover:shadow-lg transition-shadow cursor-pointer animate-fade-in"
+                className="text-center group hover:shadow-lg transition-shadow cursor-pointer animate-fade-in p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <h3 className="text-lg font-semibold text-primary-600">{category}</h3>
@@ -250,7 +408,7 @@ export default function EventsPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-400  mb-4">
               Stay Updated
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">

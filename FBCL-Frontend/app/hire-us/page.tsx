@@ -34,7 +34,7 @@ export default function HireUsPage() {
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl text-secondary-400 md:text-6xl font-bold mb-6">
               Hire the Library
             </h1>
             <p className="text-xl text-gray-100 mb-8">
@@ -128,7 +128,7 @@ export default function HireUsPage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <Card className="bg-primary-600 text-white p-8 text-center animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl text-secondary-400 md:text-4xl font-bold mb-4">
                 Hire us from £30/hour — no hidden fees.
               </h2>
               <p className="text-xl text-gray-100 mb-6">
@@ -240,7 +240,7 @@ export default function HireUsPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl text-secondary-400  md:text-4xl font-bold mb-4">
               Ready to Book Your Event?
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">

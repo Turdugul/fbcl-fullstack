@@ -1,4 +1,4 @@
-// File: D:\FBCL\FBCL-Frontend\app\hire-us\page.tsx
+// File: D:\fbclibrary\FBCL-Frontend\app\hire-us\page.tsx
 import * as entry from '../../../../app/hire-us/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

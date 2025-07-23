@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
+  reactStrictMode: true,
+  onDemandEntries: {
+    maxInactiveAge: 0, // Disable persistent caching
   },
   images: {
     domains: ['images.unsplash.com', 'via.placeholder.com'],
@@ -9,6 +10,10 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-}
+  webpack: (config, { isServer }) => {
+    config.cache = false; // Disable webpack filesystem cache
+    return config;
+  },
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig;

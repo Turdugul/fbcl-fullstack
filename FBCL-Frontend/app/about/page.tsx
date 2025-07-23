@@ -68,7 +68,7 @@ export default function AboutPage() {
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-6 inline-block">
                 <span className="text-2xl font-bold text-secondary-300">Celebrating Our 12th Anniversary!</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="text-4xl text-secondary-400 md:text-6xl font-bold mb-6">
                 About FBCL
               </h1>
               <p className="text-xl text-gray-100 mb-8">
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 diverse programs and initiatives.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild>
+                <Button variant="secondary" asChild className="btn-secondary">
                   <Link href="/volunteer">
                     Join Our Mission
                   </Link>
@@ -111,11 +111,11 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <img
-                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop"
-                alt="Community volunteers"
-                className="rounded-lg shadow-xl"
-              />
+            <img
+  src="/library.jpg"
+  alt="Community volunteers"
+  className="rounded-lg shadow-xl"
+/>
             </div>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function AboutPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl text-secondary-400  md:text-4xl font-bold mb-4">
               Join Our Community
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">

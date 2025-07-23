@@ -105,7 +105,7 @@ export default function VolunteerPage() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="text-4xl text-secondary-400 md:text-6xl font-bold mb-6">
                 Volunteer With Us
               </h1>
               <p className="text-xl text-gray-100 mb-8">
@@ -151,7 +151,7 @@ export default function VolunteerPage() {
             {volunteerRoles.map((role, index) => (
               <Card
                 key={role.title}
-                className="group animate-fade-in hover-lift"
+                className="group animate-fade-in hover-lift p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex justify-center mb-4">
@@ -176,8 +176,10 @@ export default function VolunteerPage() {
                   </ul>
                 </div>
                 
-                <Button className="w-full">
-                  Apply for This Role
+                <Button asChild className="w-full">
+                  <Link href="/volunteer/apply">
+                    Apply for This Role
+                  </Link>
                 </Button>
               </Card>
             ))}
@@ -201,7 +203,7 @@ export default function VolunteerPage() {
             {benefits.map((benefit, index) => (
               <Card
                 key={benefit.title}
-                className="text-center animate-fade-in hover-lift"
+                className="text-center animate-fade-in hover-lift p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex justify-center mb-4">
@@ -231,7 +233,7 @@ export default function VolunteerPage() {
             {successStories.map((story, index) => (
               <div
                 key={story.name}
-                className="card animate-fade-in hover-lift"
+                className="card animate-fade-in hover-lift p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-center mb-4">
@@ -358,7 +360,7 @@ export default function VolunteerPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl  text-secondary-400  md:text-4xl font-bold mb-4">
               Ready to Make a Difference?
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
@@ -366,9 +368,11 @@ export default function VolunteerPage() {
               and vibrant community. Every hour you give makes a real impact.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-secondary">
-                Apply Now
-              </button>
+              <Button asChild className="btn-secondary">
+                <Link href="/volunteer/apply">
+                  Apply Now
+                </Link>
+              </Button>
               <button className="btn-outline border-white text-white hover:bg-white hover:text-primary-600">
                 Contact Us
               </button>

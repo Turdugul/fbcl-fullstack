@@ -46,7 +46,7 @@ export default function ContactPage() {
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl text-secondary-400 md:text-6xl font-bold mb-6">
               Contact Us
             </h1>
             <p className="text-xl text-gray-100 mb-8">
@@ -192,7 +192,7 @@ export default function ContactPage() {
             </div>
             
             <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <Card>
+              <Card className="p-6">
                 <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -337,7 +337,7 @@ export default function ContactPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl text-secondary-400  md:text-4xl font-bold mb-4">
               Still Have Questions?
             </h2>
             <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
