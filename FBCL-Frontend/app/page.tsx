@@ -1,12 +1,9 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, Users, BookOpen, Heart, Calendar, MapPin, Clock, Phone, ChevronRight } from 'lucide-react'
-import { Button, Card } from '@/components/ui'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Welcome to Friends of the Friern Barnet Community Library. Supporting literacy and community engagement through our local library.',
-}
+import Link from 'next/link'
+import { ArrowRight, Users, BookOpen, Heart, Calendar, MapPin, Clock, Phone, ChevronRight, ChevronLeft, Award } from 'lucide-react'
+import { Button, Card } from '@/components/ui'
+import { useState } from 'react'
 
 const stats = [
   { number: '500+', label: 'Books Donated', icon: BookOpen },
@@ -79,6 +76,135 @@ const activities = [
   { name: 'Community Activities', icon: '🤝', description: 'Build lasting connections' }
 ]
 
+const galleryImages = [
+  {
+    id: 1,
+    src: '/libr1.jpg',
+    alt: 'Library interior with bookshelves',
+    title: 'Our Main Reading Area'
+  },
+  {
+    id: 2,
+    src: '/libr2.jpg',
+    alt: 'Children reading corner',
+    title: 'Children\'s Corner'
+  },
+  {
+    id: 3,
+    src: '/libr3.jpg',
+    alt: 'Volunteers organizing books',
+    title: 'Volunteer Book Sorting'
+  },
+  {
+    id: 4,
+    src: '/libr4.jpg',
+    alt: 'Community event space',
+    title: 'Community Events Space'
+  },
+  {
+    id: 5,
+    src: '/libr5.jpg',
+    alt: 'Library entrance and reception',
+    title: 'Library Reception'
+  },
+  {
+    id: 6,
+    src: '/library.jpg',
+    alt: 'Exterior view of the library',
+    title: 'Library Exterior'
+  }
+]
+
+const awards = [
+  {
+    id: 1,
+    title: 'Community Library of the Year',
+    date: '2023',
+    image: '/libr1.jpg',
+    certificate: '/libr2.jpg',
+    description: 'Awarded for outstanding community engagement and literacy programs that have made a significant impact on local residents.'
+  },
+  {
+    id: 2,
+    title: 'Volunteer Excellence Award',
+    date: '2022',
+    image: '/libr3.jpg',
+    certificate: null,
+    description: 'Recognized for exceptional volunteer management and the positive impact our volunteer team has on the community.'
+  },
+  {
+    id: 3,
+    title: 'Innovation in Literacy Award',
+    date: '2021',
+    image: '/libr4.jpg',
+    certificate: '/libr5.jpg',
+    description: 'Honored for innovative approaches to promoting literacy and lifelong learning in our diverse community.'
+  }
+]
+
+// Gallery Carousel Component
+function GalleryCarousel({ images }: { images: any[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
+  }
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden rounded-lg">
+        <div className="relative h-96">
+          <img
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            className="w-full h-full object-cover transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-black/20 flex items-end">
+            <div className="p-6 text-white">
+              <h3 className="text-xl font-semibold mb-2">{images[currentIndex].title}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Navigation Buttons */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+      
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        aria-label="Next image"
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
+      
+      {/* Dots Indicator */}
+      <div className="flex justify-center mt-4 space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-200 ${
+              index === currentIndex ? 'bg-secondary-500' : 'bg-gray-300 hover:bg-gray-400'
+            }`}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function HomePage() {
   return (
     <div className="bg-white">
@@ -104,7 +230,6 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="secondary" asChild className="btn-secondary px-8 py-4 group">
                   <Link href="/volunteer">
-                  
                       Join Us
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 
@@ -135,9 +260,9 @@ export default function HomePage() {
       </section>
 
       {/* Quick Links Section */}
-      <section className="section-padding-sm bg-gray-50">
+      <section className="section-padding-sm bg-gray-100">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 bg-red-50">
             {quickLinks.map((link, index) => (
               <Link
                 key={link.title}
@@ -145,7 +270,7 @@ export default function HomePage() {
                 className="group block animate-fade-in hover-lift"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="card h-full group-hover:border-primary-300 transition-all duration-300">
+                <div className="card h-full group-hover:border-primary-300 hover:rounded-full transition-all duration-300">
                   <div className="flex items-center mb-4">
                     <link.icon className="h-8 w-8 text-accent group-hover:text-accent-hover transition-colors duration-300" />
                   </div>
@@ -346,6 +471,69 @@ export default function HomePage() {
                 </Link>
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+              Our Library Gallery
+            </h2>
+            <p className="text-responsive-lg text-secondary-dark max-w-3xl mx-auto font-elegant-body">
+              Take a virtual tour of our community library and see the spaces where learning and community come together.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <GalleryCarousel images={galleryImages} />
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+              Awards & Recognition
+            </h2>
+            <p className="text-responsive-lg text-secondary-dark max-w-3xl mx-auto font-elegant-body">
+              We're proud of the recognition we've received for our commitment to community literacy and engagement.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {awards.map((award, index) => (
+              <Card key={award.id} className="p-6 animate-fade-in hover-lift" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="flex flex-col gap-4">
+                  <div className="flex-shrink-0">
+                    <img
+                      src={award.image}
+                      alt={award.title}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-xl font-semibold text-gray-900">{award.title}</h3>
+                      <span className="text-sm text-secondary-500 font-medium bg-secondary-50 px-3 py-1 rounded-full">
+                        {award.date}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 mb-4">{award.description}</p>
+                    {award.certificate && (
+                      <div className="flex items-center space-x-2">
+                        <Award className="h-4 w-4 text-secondary-500" />
+                        <span className="text-sm text-secondary-600">Certificate Available</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

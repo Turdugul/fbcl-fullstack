@@ -15,7 +15,7 @@
     line-height: 1.6;
     color: #334155;
     font-weight: 400;
-    background-color: #ffffff;
+    background-color: #f5f3ef;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -39,7 +39,7 @@
     position: absolute;
     top: -40px;
     left: 6px;
-    background: #0ea5e9;
+    background: #e55304;
     color: white;
     padding: 8px;
     text-decoration: none;
@@ -75,15 +75,15 @@
   }
   
   .card {
-    @apply bg-white border border-gray-200 hover:border-gray-300 transition-all duration-300 p-6 shadow-sm hover:shadow-md hover:transform hover:scale-105;
+    @apply bg-white border border-gray-200 hover:border-gray-300 transition-all duration-300 p-6 shadow-sm hover:shadow-md hover:transform hover:scale-105 rounded-lg ;
   }
   
   .card-elevated {
-    @apply bg-white border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 p-6 hover:transform hover:scale-105;
+    @apply bg-stone-100 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 p-6 hover:transform hover:scale-105 hover:rounded-full;
   }
   
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg hover:rounded-full;
   }
   
   .section-padding {
@@ -176,7 +176,7 @@
   
   .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, #949697 50%, transparent 100%);
   }
   
   /* Navigation styles */

@@ -19,7 +19,6 @@ const navigation = [
   },
   { name: 'Events', href: '/events' },
   { name: 'Testimonials', href: '/testimonials' },
-  { name: 'Trustees', href: '/trustees' },
   { name: 'Volunteer', href: '/volunteer' },
   { name: 'Hire Us', href: '/hire-us' },
   { name: 'Contact', href: '/contact' },

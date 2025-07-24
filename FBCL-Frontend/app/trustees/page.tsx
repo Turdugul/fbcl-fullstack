@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import { Mail, Linkedin, Globe } from 'lucide-react'
+import Link from 'next/link'
+import { Mail, Linkedin, Globe, ArrowLeft } from 'lucide-react'
 import { Button, Card } from '@/components/ui'
 
 export const metadata: Metadata = {
@@ -101,6 +102,17 @@ const trustees = [
 export default function TrusteesPage() {
   return (
     <div className="pt-16">
+      {/* Back Navigation */}
+      <div className="container-custom py-6">
+        <Link 
+          href="/about" 
+          className="inline-flex items-center text-secondary-500 hover:text-secondary-600 transition-colors font-medium group"
+        >
+          <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
+          Back to About
+        </Link>
+      </div>
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
         <div className="container-custom">

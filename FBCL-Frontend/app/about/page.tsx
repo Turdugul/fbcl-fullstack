@@ -1,12 +1,9 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { Calendar, Users, BookOpen, Heart, Award, Target } from 'lucide-react'
-import { Button, Card } from '@/components/ui'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'About',
-  description: 'Learn about the Friends of the Friern Barnet Community Library, our mission, history, and impact on the community.',
-}
+import Link from 'next/link'
+import { Calendar, Users, BookOpen, Heart, Award, Target, ChevronLeft, ChevronRight, Mail, Linkedin, Globe } from 'lucide-react'
+import { Button, Card } from '@/components/ui'
+import { useState } from 'react'
 
 const timeline = [
   {
@@ -57,6 +54,190 @@ const impactStats = [
   { number: '15+', label: 'Years of Service', icon: Award },
   { number: '95%', label: 'Community Satisfaction', icon: Target },
 ]
+
+const galleryImages = [
+  {
+    id: 1,
+    src: '/libr1.jpg',
+    alt: 'Library interior with bookshelves',
+    title: 'Our Main Reading Area'
+  },
+  {
+    id: 2,
+    src: '/libr2.jpg',
+    alt: 'Children reading corner',
+    title: 'Children\'s Corner'
+  },
+  {
+    id: 3,
+    src: '/libr3.jpg',
+    alt: 'Volunteers organizing books',
+    title: 'Volunteer Book Sorting'
+  },
+  {
+    id: 4,
+    src: '/libr4.jpg',
+    alt: 'Community event space',
+    title: 'Community Events Space'
+  },
+  {
+    id: 5,
+    src: '/libr5.jpg',
+    alt: 'Library entrance and reception',
+    title: 'Library Reception'
+  },
+  {
+    id: 6,
+    src: '/library.jpg',
+    alt: 'Exterior view of the library',
+    title: 'Library Exterior'
+  }
+]
+
+const awards = [
+  {
+    id: 1,
+    title: 'Community Library of the Year',
+    date: '2023',
+    image: '/libr1.jpg',
+    certificate: '/libr2.jpg',
+    description: 'Awarded for outstanding community engagement and literacy programs that have made a significant impact on local residents.'
+  },
+  {
+    id: 2,
+    title: 'Volunteer Excellence Award',
+    date: '2022',
+    image: '/libr3.jpg',
+    certificate: null,
+    description: 'Recognized for exceptional volunteer management and the positive impact our volunteer team has on the community.'
+  },
+  {
+    id: 3,
+    title: 'Innovation in Literacy Award',
+    date: '2021',
+    image: '/libr4.jpg',
+    certificate: '/libr5.jpg',
+    description: 'Honored for innovative approaches to promoting literacy and lifelong learning in our diverse community.'
+  },
+  {
+    id: 4,
+    title: 'Community Partnership Award',
+    date: '2020',
+    image: '/library.jpg',
+    certificate: null,
+    description: 'Awarded for successful partnerships with local schools, organizations, and community groups.'
+  }
+]
+
+const trustees = [
+  {
+    id: 1,
+    name: "Dr. Sarah Johnson",
+    role: "Board President",
+    bio: "Dr. Johnson has been a passionate advocate for literacy and education for over 20 years. She holds a PhD in Education and has dedicated her career to improving access to learning resources in underserved communities.",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
+    email: "sarah.johnson@fbcl.org",
+    linkedin: "#",
+    website: "#",
+    term: "2020-2024"
+  },
+  {
+    id: 2,
+    name: "Michael Chen",
+    role: "Vice President",
+    bio: "Michael brings 15 years of experience in nonprofit management and community development. He has successfully led numerous fundraising campaigns and volunteer recruitment initiatives.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+    email: "michael.chen@fbcl.org",
+    linkedin: "#",
+    website: "#",
+    term: "2021-2025"
+  },
+  {
+    id: 3,
+    name: "Emily Rodriguez",
+    role: "Secretary",
+    bio: "Emily is a former librarian with a deep understanding of community needs. She has been instrumental in developing our children's programs and digital literacy initiatives.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
+    email: "emily.rodriguez@fbcl.org",
+    linkedin: "#",
+    website: "#",
+    term: "2022-2026"
+  },
+  {
+    id: 4,
+    name: "David Thompson",
+    role: "Treasurer",
+    bio: "David is a certified public accountant with extensive experience in nonprofit financial management. He ensures our organization maintains the highest standards of fiscal responsibility.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+    email: "david.thompson@fbcl.org",
+    linkedin: "#",
+    website: "#",
+    term: "2020-2024"
+  }
+]
+
+// Gallery Carousel Component
+function GalleryCarousel({ images }: { images: any[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
+  }
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden rounded-lg">
+        <div className="relative h-96">
+          <img
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            className="w-full h-full object-cover transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-black/20 flex items-end">
+            <div className="p-6 text-white">
+              <h3 className="text-xl font-semibold mb-2">{images[currentIndex].title}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Navigation Buttons */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+      
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        aria-label="Next image"
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
+      
+      {/* Dots Indicator */}
+      <div className="flex justify-center mt-4 space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-200 ${
+              index === currentIndex ? 'bg-secondary-500' : 'bg-gray-300 hover:bg-gray-400'
+            }`}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function AboutPage() {
   return (
@@ -228,6 +409,142 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Library Gallery
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Take a virtual tour of our community library and see the spaces where learning and community come together.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <GalleryCarousel images={galleryImages} />
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Awards & Recognition
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We're proud of the recognition we've received for our commitment to community literacy and engagement.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {awards.map((award, index) => (
+              <Card key={award.id} className="p-6 animate-fade-in hover-lift" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="flex flex-col md:flex-row gap-6">
+                  <div className="flex-shrink-0">
+                    <img
+                      src={award.image}
+                      alt={award.title}
+                      className="w-full md:w-48 h-32 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-xl font-semibold text-gray-900">{award.title}</h3>
+                      <span className="text-sm text-secondary-500 font-medium bg-secondary-50 px-3 py-1 rounded-full">
+                        {award.date}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 mb-4">{award.description}</p>
+                    {award.certificate && (
+                      <div className="flex items-center space-x-2">
+                        <Award className="h-4 w-4 text-secondary-500" />
+                        <span className="text-sm text-secondary-600">Certificate Available</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trustees Section */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Meet Our Trustees
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our dedicated board of trustees provides leadership and guidance to ensure FBCL continues to serve our community effectively.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {trustees.map((trustee, index) => (
+              <Card key={trustee.id} className="text-center animate-fade-in hover-lift p-6" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="mb-4">
+                  <img
+                    src={trustee.image}
+                    alt={trustee.name}
+                    className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-gray-100 shadow-lg"
+                  />
+                  <h3 className="text-xl font-semibold text-gray-900 mb-1">{trustee.name}</h3>
+                  <p className="text-secondary-500 font-medium mb-2">{trustee.role}</p>
+                  <span className="text-sm text-gray-500 bg-gray-50 px-3 py-1 rounded-full">
+                    Term: {trustee.term}
+                  </span>
+                </div>
+                
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  {trustee.bio}
+                </p>
+                
+                <div className="flex justify-center space-x-3">
+                  <a
+                    href={`mailto:${trustee.email}`}
+                    className="text-gray-400 hover:text-secondary-500 transition-colors p-2 hover:bg-gray-50 rounded-full"
+                    aria-label={`Email ${trustee.name}`}
+                  >
+                    <Mail className="h-4 w-4" />
+                  </a>
+                  {trustee.linkedin !== "#" && (
+                    <a
+                      href={trustee.linkedin}
+                      className="text-gray-400 hover:text-secondary-500 transition-colors p-2 hover:bg-gray-50 rounded-full"
+                      aria-label={`${trustee.name}'s LinkedIn`}
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
+                  )}
+                  {trustee.website !== "#" && (
+                    <a
+                      href={trustee.website}
+                      className="text-gray-400 hover:text-secondary-500 transition-colors p-2 hover:bg-gray-50 rounded-full"
+                      aria-label={`${trustee.name}'s Website`}
+                    >
+                      <Globe className="h-4 w-4" />
+                    </a>
+                  )}
+                </div>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12 animate-fade-in stagger-3">
+            <Button asChild variant="outline">
+              <Link href="/trustees">
+                View All Trustees
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

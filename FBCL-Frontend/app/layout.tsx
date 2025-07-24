@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     'adult education',
     'digital literacy'
   ],
-  authors: [{ name: 'Friends of the Friern Barnet Community Library' }],
+  authors: [{ name: 'Friern Barnet Community Library' }],
   creator: 'FBCL',
-  publisher: 'Friends of the Friern Barnet Community Library',
+  publisher: 'Friern Barnet Community Library',
   formatDetection: {
     email: false,
     address: false,
