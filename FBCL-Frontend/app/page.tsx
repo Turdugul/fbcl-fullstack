@@ -155,17 +155,17 @@ function GalleryCarousel({ images }: { images: any[] }) {
   }
 
   return (
-    <div className="relative">
-      <div className="overflow-hidden rounded-lg">
-        <div className="relative h-96">
+    <div className="relative w-full">
+      <div className="overflow-hidden rounded-xl shadow-lg">
+        <div className="relative h-64 sm:h-80 md:h-96">
           <img
             src={images[currentIndex].src}
             alt={images[currentIndex].alt}
             className="w-full h-full object-cover transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-black/20 flex items-end">
-            <div className="p-6 text-white">
-              <h3 className="text-xl font-semibold mb-2">{images[currentIndex].title}</h3>
+          <div className="absolute inset-0 bg-black/30 flex items-end">
+            <div className="p-4 sm:p-6 text-white">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">{images[currentIndex].title}</h3>
             </div>
           </div>
         </div>
@@ -174,18 +174,18 @@ function GalleryCarousel({ images }: { images: any[] }) {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500"
         aria-label="Previous image"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
       </button>
       
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500"
         aria-label="Next image"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
       </button>
       
       {/* Dots Indicator */}
@@ -194,7 +194,7 @@ function GalleryCarousel({ images }: { images: any[] }) {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 ${
               index === currentIndex ? 'bg-secondary-500' : 'bg-gray-300 hover:bg-gray-400'
             }`}
             aria-label={`Go to image ${index + 1}`}
@@ -212,30 +212,29 @@ export default function HomePage() {
       <section className="relative hero-gradient text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[90vh] py-24">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[80vh] sm:min-h-[90vh] py-16 sm:py-20 lg:py-24">
             <div className="animate-fade-in">
-              <div className="mb-6">
-                <span className="text-secondary-400 font-medium tracking-wide uppercase text-sm bg-white/10 px-4 py-2 rounded-full">
+              <div className="mb-4 sm:mb-6">
+                <span className="text-secondary-400 font-medium tracking-wide uppercase text-xs sm:text-sm bg-white/10 px-3 sm:px-4 py-2 rounded-full">
                   Established 2013
                 </span>
               </div>
-              <h1 className="text-responsive-4xl text-secondary-400 md:text-responsive-6xl font-elegant-heading mb-8 text-balance leading-tight">
+              <h1 className="text-responsive-4xl text-secondary-400 md:text-responsive-6xl font-elegant-heading mb-6 sm:mb-8 text-balance leading-tight">
                 Supporting Literacy, 
                 <span className="text-secondary-300 block">Building Community</span>
               </h1>
-              <p className="text-responsive-lg mb-10 text-gray-100 font-elegant-body leading-relaxed max-w-2xl">
+              <p className="text-responsive-lg mb-8 sm:mb-10 text-gray-100 font-elegant-body leading-relaxed max-w-2xl">
                 Join the Friends of the Friern Barnet Community Library in fostering a love for reading, 
                 learning, and community engagement. Together, we make knowledge accessible to everyone.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="secondary" asChild className="btn-secondary px-8 py-4 group">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button variant="secondary" asChild className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 group">
                   <Link href="/volunteer">
                       Join Us
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </Button>
-                <Button variant="outline" asChild className="border-white text-white hover:bg-white hover:text-primary-800 font-elegant-body text-base px-8 py-4">
+                <Button variant="outline" asChild className="border-white text-white hover:bg-white hover:text-primary-800 font-elegant-body text-base px-6 sm:px-8 py-3 sm:py-4">
                   <Link href="/events">
                     See Events
                   </Link>
@@ -247,10 +246,10 @@ export default function HomePage() {
                 <img
                   src="/library.jpg"
                   alt="Community library"
-                  className="w-full h-[600px] object-cover shadow-2xl"
+                  className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover shadow-2xl rounded-lg"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-white text-primary-800 p-6 border border-gray-200 shadow-lg">
-                  <p className="text-sm font-elegant-heading mb-1">Since 2013</p>
+                <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white text-primary-800 p-4 sm:p-6 border border-gray-200 shadow-lg rounded-lg">
+                  <p className="text-xs sm:text-sm font-elegant-heading mb-1">Since 2013</p>
                   <p className="text-xs text-secondary-dark font-elegant-body">Serving our community</p>
                 </div>
               </div>
@@ -262,7 +261,7 @@ export default function HomePage() {
       {/* Quick Links Section */}
       <section className="section-padding-sm bg-gray-100">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 bg-red-50">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {quickLinks.map((link, index) => (
               <Link
                 key={link.title}
@@ -270,17 +269,17 @@ export default function HomePage() {
                 className="group block animate-fade-in hover-lift"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="card h-full group-hover:border-primary-300 hover:rounded-full transition-all duration-300">
-                  <div className="flex items-center mb-4">
-                    <link.icon className="h-8 w-8 text-accent group-hover:text-accent-hover transition-colors duration-300" />
+                <div className="card h-full group-hover:border-primary-300 transition-all duration-300 p-4 sm:p-6">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <link.icon className="h-6 w-6 sm:h-8 sm:w-8 text-accent group-hover:text-accent-hover transition-colors duration-300" />
                   </div>
-                  <h3 className="text-xl font-elegant-heading mb-2 group-hover:text-primary-dark transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-elegant-heading mb-2 group-hover:text-primary-dark transition-colors duration-300">
                     {link.title}
                   </h3>
                   <p className="text-secondary-dark font-elegant-body text-sm leading-relaxed">
                     {link.description}
                   </p>
-                  <div className="mt-4 flex items-center text-accent group-hover:text-accent-hover transition-colors duration-300">
+                  <div className="mt-3 sm:mt-4 flex items-center text-accent group-hover:text-accent-hover transition-colors duration-300">
                     <span className="text-sm font-medium">Learn more</span>
                     <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
@@ -294,28 +293,28 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
               Our Impact
             </h2>
             <p className="text-responsive-lg text-secondary-dark max-w-3xl mx-auto font-elegant-body">
               Discover the numbers behind our community library's success and growth.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="text-center animate-fade-in hover-lift"
+                className="text-center animate-fade-in hover-lift p-4 sm:p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex justify-center mb-4">
-                  <stat.icon className="h-12 w-12 text-accent" />
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <stat.icon className="h-8 w-8 sm:h-12 sm:w-12 text-accent" />
                 </div>
-                <div className="text-3xl md:text-4xl font-elegant-heading text-primary-dark mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-elegant-heading text-primary-dark mb-2">
                   {stat.number}
                 </div>
-                <div className="text-secondary-dark font-elegant-body text-sm">
+                <div className="text-secondary-dark font-elegant-body text-xs sm:text-sm">
                   {stat.label}
                 </div>
               </div>
@@ -327,21 +326,21 @@ export default function HomePage() {
       {/* About Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="animate-fade-in">
-              <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+              <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
                 About FBCL
               </h2>
-              <p className="text-responsive-lg text-secondary-dark mb-6 font-elegant-body leading-relaxed">
+              <p className="text-responsive-lg text-secondary-dark mb-4 sm:mb-6 font-elegant-body leading-relaxed">
                 The Friends of the Friern Barnet Community Library is a non-profit organization dedicated to 
                 supporting the Friern Barnet Community Library through fundraising, volunteerism, and community outreach.
               </p>
-              <p className="text-secondary-dark mb-8 font-elegant-body leading-relaxed">
+              <p className="text-secondary-dark mb-6 sm:mb-8 font-elegant-body leading-relaxed">
                 We believe that access to knowledge and literacy resources is fundamental to a thriving 
                 community. Our volunteers work tirelessly to ensure that everyone has the opportunity 
                 to discover the joy of reading and learning.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link href="/about" className="btn-secondary font-elegant-body">
                   Learn More
                 </Link>
@@ -350,16 +349,16 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6 animate-fade-in stagger-1">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 animate-fade-in stagger-1">
               <img
                 src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=300&h=300&fit=crop"
                 alt="Volunteers working"
-                className="w-full h-64 object-cover hover-scale"
+                className="w-full h-48 sm:h-64 object-cover hover-scale rounded-lg"
               />
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop"
                 alt="Community event"
-                className="w-full h-64 object-cover mt-8 hover-scale"
+                className="w-full h-48 sm:h-64 object-cover mt-8 hover-scale rounded-lg"
               />
             </div>
           </div>
@@ -369,8 +368,8 @@ export default function HomePage() {
       {/* Featured Events */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
               Featured Events
             </h2>
             <p className="text-responsive-lg text-secondary-dark max-w-3xl mx-auto font-elegant-body">
@@ -378,23 +377,23 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredEvents.map((event, index) => (
               <div
                 key={event.title}
-                className="card group animate-fade-in hover-lift"
+                className="card group animate-fade-in hover-lift p-4 sm:p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-48 object-cover mb-6 group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-40 sm:h-48 object-cover mb-4 sm:mb-6 group-hover:scale-105 transition-transform duration-300 rounded-lg"
                 />
-                <h3 className="text-xl font-elegant-heading mb-3">{event.title}</h3>
-                <div className="text-sm text-secondary-dark mb-4 font-elegant-body">
+                <h3 className="text-lg sm:text-xl font-elegant-heading mb-2 sm:mb-3">{event.title}</h3>
+                <div className="text-sm text-secondary-dark mb-3 sm:mb-4 font-elegant-body">
                   {event.date} • {event.time}
                 </div>
-                <p className="text-secondary-dark mb-6 font-elegant-body leading-relaxed">{event.description}</p>
+                <p className="text-secondary-dark mb-4 sm:mb-6 font-elegant-body leading-relaxed">{event.description}</p>
                 <Link href="/events" className="btn-secondary font-elegant-body inline-flex items-center">
                   Learn More
                   <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -403,7 +402,7 @@ export default function HomePage() {
             ))}
           </div>
           
-          <div className="text-center mt-12 animate-fade-in stagger-3">
+          <div className="text-center mt-10 sm:mt-12 animate-fade-in stagger-3">
             <Link href="/events" className="btn-primary font-elegant-body">
               View All Events
             </Link>
@@ -414,8 +413,8 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
               What Our Community Says
             </h2>
             <p className="text-responsive-lg text-secondary-dark font-elegant-body">
@@ -423,15 +422,15 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.author}
-                className="card text-center animate-fade-in hover-lift"
+                className="card text-center animate-fade-in hover-lift p-4 sm:p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-4xl text-accent mb-6 font-elegant-accent">"</div>
-                <p className="text-secondary-dark mb-8 italic font-elegant-body leading-relaxed">
+                <div className="text-3xl sm:text-4xl text-accent mb-4 sm:mb-6 font-elegant-accent">"</div>
+                <p className="text-secondary-dark mb-6 sm:mb-8 italic font-elegant-body leading-relaxed">
                   {testimonial.quote}
                 </p>
                 <div>
@@ -452,20 +451,20 @@ export default function HomePage() {
       <section className="section-padding bg-primary-800 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-responsive-3xl !text-warm md:text-responsive-4xl font-elegant-heading mb-6">
+            <h2 className="text-responsive-3xl !text-warm md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
               Get Involved
             </h2>
-            <p className="text-responsive-lg text-gray-100 mb-10 max-w-4xl mx-auto font-elegant-body leading-relaxed">
+            <p className="text-responsive-lg text-gray-100 mb-8 sm:mb-10 max-w-4xl mx-auto font-elegant-body leading-relaxed">
               Friern Barnet Community Library is a volunteer-run library! We would appreciate your help. 
               Ask at the staff desk if you would like to be a volunteer.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" asChild className="text-base px-8 py-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button variant="secondary" asChild className="text-base px-6 sm:px-8 py-3 sm:py-4">
                 <Link href="/volunteer" className="font-elegant-body">
                   Volunteer With Us
                 </Link>
               </Button>
-              <Button variant="outline" asChild className="border-white text-white hover:bg-white hover:text-primary-800 font-elegant-body text-base px-8 py-4">
+              <Button variant="outline" asChild className="border-white text-white hover:bg-white hover:text-primary-800 font-elegant-body text-base px-6 sm:px-8 py-3 sm:py-4">
                 <Link href="/contact">
                   Contact Us
                 </Link>
@@ -478,8 +477,8 @@ export default function HomePage() {
       {/* Gallery Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
               Our Library Gallery
             </h2>
             <p className="text-responsive-lg text-secondary-dark max-w-3xl mx-auto font-elegant-body">
@@ -496,8 +495,8 @@ export default function HomePage() {
       {/* Awards Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
               Awards & Recognition
             </h2>
             <p className="text-responsive-lg text-secondary-dark max-w-3xl mx-auto font-elegant-body">
@@ -505,25 +504,25 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {awards.map((award, index) => (
-              <Card key={award.id} className="p-6 animate-fade-in hover-lift" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={award.id} className="animate-fade-in hover-lift p-4 sm:p-6" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="flex flex-col gap-4">
                   <div className="flex-shrink-0">
                     <img
                       src={award.image}
                       alt={award.title}
-                      className="w-full h-48 object-cover rounded-lg"
+                      className="w-full h-40 sm:h-48 object-cover rounded-lg"
                     />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-gray-900">{award.title}</h3>
-                      <span className="text-sm text-secondary-500 font-medium bg-secondary-50 px-3 py-1 rounded-full">
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{award.title}</h3>
+                      <span className="text-xs sm:text-sm text-secondary-500 font-medium bg-secondary-50 px-2 sm:px-3 py-1 rounded-full">
                         {award.date}
                       </span>
                     </div>
-                    <p className="text-gray-600 mb-4">{award.description}</p>
+                    <p className="text-gray-600 mb-4 text-sm sm:text-base">{award.description}</p>
                     {award.certificate && (
                       <div className="flex items-center space-x-2">
                         <Award className="h-4 w-4 text-secondary-500" />
@@ -541,8 +540,8 @@ export default function HomePage() {
       {/* What's On Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-6">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4 sm:mb-6">
               What's On at FBCL?
             </h2>
             <p className="text-responsive-lg text-secondary-dark max-w-3xl mx-auto font-elegant-body">
@@ -550,16 +549,16 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
             {activities.map((activity, index) => (
               <Card
                 key={activity.name}
-                className="text-center animate-fade-in hover-lift p-6"
+                className="text-center animate-fade-in hover-lift p-3 sm:p-6"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <div className="text-4xl mb-4">{activity.icon}</div>
-                <h3 className="text-lg font-elegant-heading text-primary-dark mb-2">{activity.name}</h3>
-                <p className="text-sm text-secondary-dark font-elegant-body">{activity.description}</p>
+                <div className="text-2xl sm:text-4xl mb-2 sm:mb-4">{activity.icon}</div>
+                <h3 className="text-sm sm:text-lg font-elegant-heading text-primary-dark mb-1 sm:mb-2">{activity.name}</h3>
+                <p className="text-xs sm:text-sm text-secondary-dark font-elegant-body">{activity.description}</p>
               </Card>
             ))}
           </div>
@@ -569,27 +568,27 @@ export default function HomePage() {
       {/* Contact Info Section */}
       <section className="section-padding-sm bg-gray-50">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center animate-fade-in">
-              <MapPin className="h-8 w-8 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-elegant-heading mb-2">Visit Us</h3>
-              <p className="text-secondary-dark font-elegant-body">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center animate-fade-in p-4 sm:p-6">
+              <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-accent mx-auto mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-elegant-heading mb-2">Visit Us</h3>
+              <p className="text-secondary-dark font-elegant-body text-sm sm:text-base">
                 Friern Barnet Community Library<br />
                 Friern Barnet, London
               </p>
             </div>
-            <div className="text-center animate-fade-in stagger-1">
-              <Clock className="h-8 w-8 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-elegant-heading mb-2">Opening Hours</h3>
-              <p className="text-secondary-dark font-elegant-body">
+            <div className="text-center animate-fade-in stagger-1 p-4 sm:p-6">
+              <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-accent mx-auto mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-elegant-heading mb-2">Opening Hours</h3>
+              <p className="text-secondary-dark font-elegant-body text-sm sm:text-base">
                 Monday - Friday: 9:00 AM - 6:00 PM<br />
                 Saturday: 10:00 AM - 4:00 PM
               </p>
             </div>
-            <div className="text-center animate-fade-in stagger-2">
-              <Phone className="h-8 w-8 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-elegant-heading mb-2">Contact</h3>
-              <p className="text-secondary-dark font-elegant-body">
+            <div className="text-center animate-fade-in stagger-2 p-4 sm:p-6">
+              <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-accent mx-auto mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-elegant-heading mb-2">Contact</h3>
+              <p className="text-secondary-dark font-elegant-body text-sm sm:text-base">
                 Get in touch with our team<br />
                 for more information
               </p>

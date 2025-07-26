@@ -94,13 +94,13 @@ export default function CollectionsPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+      <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 sm:py-20">
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
-            <h1 className="text-4xl  text-white md:text-6xl font-elegant-heading mb-6">
+            <h1 className="text-responsive-4xl text-white md:text-responsive-6xl font-elegant-heading mb-4 sm:mb-6">
               Our Collections
             </h1>
-            <p className="text-xl text-gray-100 mb-8 font-elegant-body">
+            <p className="text-responsive-lg text-gray-100 mb-6 sm:mb-8 font-elegant-body">
               Discover our extensive library collections, from rare books to digital resources. 
               Every item tells a story and opens new worlds of knowledge and imagination.
             </p>
@@ -112,15 +112,15 @@ export default function CollectionsPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-elegant-heading mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4">
               Quick Access
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
               Find what you're looking for quickly with our organized access points.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {quickLinks.map((link, index) => (
               <Link
                 key={link.title}
@@ -128,12 +128,12 @@ export default function CollectionsPage() {
                 className="group animate-fade-in hover-lift"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <Card className="text-center p-8 h-full group-hover:shadow-lg transition-all duration-300">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 ${link.color}`}>
-                    <link.icon className="h-8 w-8" />
+                <Card className="text-center p-6 sm:p-8 h-full group-hover:shadow-lg transition-all duration-300">
+                  <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full mb-4 sm:mb-6 ${link.color}`}>
+                    <link.icon className="h-6 w-6 sm:h-8 sm:w-8" />
                   </div>
-                  <h3 className="text-xl font-elegant-heading mb-3">{link.title}</h3>
-                  <p className="text-gray-600 font-elegant-body mb-4">{link.description}</p>
+                  <h3 className="text-lg sm:text-xl font-elegant-heading mb-2 sm:mb-3">{link.title}</h3>
+                  <p className="text-gray-600 font-elegant-body mb-3 sm:mb-4 text-sm sm:text-base">{link.description}</p>
                   <div className="inline-flex items-center text-primary-600 font-medium group-hover:text-primary-700 transition-colors">
                     Explore
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -149,28 +149,28 @@ export default function CollectionsPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-elegant-heading mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4">
               Collection by the Numbers
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
               Our collections continue to grow, serving the diverse needs of our community.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="text-center animate-fade-in"
+                className="text-center animate-fade-in p-3 sm:p-4"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex justify-center mb-4">
-                  <stat.icon className="h-12 w-12 text-primary-600" />
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <stat.icon className="h-8 w-8 sm:h-12 sm:w-12 text-primary-600" />
                 </div>
-                <div className="text-3xl md:text-4xl font-elegant-heading text-gray-900 mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-elegant-heading text-gray-900 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 font-elegant-body">
+                <div className="text-gray-600 font-elegant-body text-xs sm:text-sm">
                   {stat.label}
                 </div>
               </div>
@@ -183,44 +183,44 @@ export default function CollectionsPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-elegant-heading mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4">
               Featured Collections
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
               Explore our most popular and comprehensive collections, carefully curated for our community.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredCollections.map((collection, index) => (
               <Card
                 key={collection.title}
-                className="animate-fade-in hover-lift p-6"
+                className="animate-fade-in hover-lift p-4 sm:p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-3 sm:mb-4">
                   {[...Array(collection.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-secondary-500 fill-current" />
+                    <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 text-secondary-500 fill-current" />
                   ))}
                 </div>
                 
                 <img
                   src={collection.image}
                   alt={collection.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-40 sm:h-48 object-cover rounded-lg mb-3 sm:mb-4"
                 />
                 
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="px-3 py-1 bg-primary-100 text-primary-800 text-sm font-medium rounded-full">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                  <span className="px-2 sm:px-3 py-1 bg-primary-100 text-primary-800 text-xs sm:text-sm font-medium rounded-full">
                     {collection.category}
                   </span>
-                  <span className="text-sm text-gray-500 font-elegant-body">
+                  <span className="text-xs sm:text-sm text-gray-500 font-elegant-body">
                     {collection.count} items
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-elegant-heading mb-3">{collection.title}</h3>
-                <p className="text-gray-600 font-elegant-body mb-4">{collection.description}</p>
+                <h3 className="text-lg sm:text-xl font-elegant-heading mb-2 sm:mb-3">{collection.title}</h3>
+                <p className="text-gray-600 font-elegant-body mb-3 sm:mb-4 text-sm sm:text-base">{collection.description}</p>
                 
                 <Button variant="outline" className="w-full">
                   Browse Collection
@@ -235,59 +235,59 @@ export default function CollectionsPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-elegant-heading mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4">
               Collection Services
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto font-elegant-body">
               We offer a range of services to help you make the most of our collections.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.1s' }}>
-              <div className="text-4xl mb-4">📚</div>
-              <h3 className="text-lg font-elegant-heading mb-3">Interlibrary Loans</h3>
-              <p className="text-gray-600 font-elegant-body">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <Card className="text-center animate-fade-in p-4 sm:p-6" style={{ animationDelay: '0.1s' }}>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">📚</div>
+              <h3 className="text-base sm:text-lg font-elegant-heading mb-2 sm:mb-3">Interlibrary Loans</h3>
+              <p className="text-gray-600 font-elegant-body text-sm sm:text-base">
                 Access materials from other libraries through our interlibrary loan service.
               </p>
             </Card>
             
-            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.2s' }}>
-              <div className="text-4xl mb-4">🔍</div>
-              <h3 className="text-lg font-elegant-heading mb-3">Research Assistance</h3>
-              <p className="text-gray-600 font-elegant-body">
+            <Card className="text-center animate-fade-in p-4 sm:p-6" style={{ animationDelay: '0.2s' }}>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🔍</div>
+              <h3 className="text-base sm:text-lg font-elegant-heading mb-2 sm:mb-3">Research Assistance</h3>
+              <p className="text-gray-600 font-elegant-body text-sm sm:text-base">
                 Get help with research projects and finding the right resources for your needs.
               </p>
             </Card>
             
-            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.3s' }}>
-              <div className="text-4xl mb-4">💡</div>
-              <h3 className="text-lg font-elegant-heading mb-3">Reading Recommendations</h3>
-              <p className="text-gray-600 font-elegant-body">
+            <Card className="text-center animate-fade-in p-4 sm:p-6" style={{ animationDelay: '0.3s' }}>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">💡</div>
+              <h3 className="text-base sm:text-lg font-elegant-heading mb-2 sm:mb-3">Reading Recommendations</h3>
+              <p className="text-gray-600 font-elegant-body text-sm sm:text-base">
                 Personalized reading suggestions based on your interests and preferences.
               </p>
             </Card>
             
-            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.4s' }}>
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="text-lg font-elegant-heading mb-3">Digital Access</h3>
-              <p className="text-gray-600 font-elegant-body">
+            <Card className="text-center animate-fade-in p-4 sm:p-6" style={{ animationDelay: '0.4s' }}>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">📱</div>
+              <h3 className="text-base sm:text-lg font-elegant-heading mb-2 sm:mb-3">Digital Access</h3>
+              <p className="text-gray-600 font-elegant-body text-sm sm:text-base">
                 Access our digital collections from anywhere with your library card.
               </p>
             </Card>
             
-            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.5s' }}>
-              <div className="text-4xl mb-4">👥</div>
-              <h3 className="text-lg font-elegant-heading mb-3">Group Study</h3>
-              <p className="text-gray-600 font-elegant-body">
+            <Card className="text-center animate-fade-in p-4 sm:p-6" style={{ animationDelay: '0.5s' }}>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">👥</div>
+              <h3 className="text-base sm:text-lg font-elegant-heading mb-2 sm:mb-3">Group Study</h3>
+              <p className="text-gray-600 font-elegant-body text-sm sm:text-base">
                 Reserve study spaces and access group resources for collaborative learning.
               </p>
             </Card>
             
-            <Card className="text-center animate-fade-in p-6" style={{ animationDelay: '0.6s' }}>
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-lg font-elegant-heading mb-3">Special Collections</h3>
-              <p className="text-gray-600 font-elegant-body">
+            <Card className="text-center animate-fade-in p-4 sm:p-6" style={{ animationDelay: '0.6s' }}>
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🎯</div>
+              <h3 className="text-base sm:text-lg font-elegant-heading mb-2 sm:mb-3">Special Collections</h3>
+              <p className="text-gray-600 font-elegant-body text-sm sm:text-base">
                 Access rare books, archives, and special materials by appointment.
               </p>
             </Card>
@@ -299,14 +299,14 @@ export default function CollectionsPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-elegant-heading mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-elegant-heading mb-4">
               Start Exploring
             </h2>
-            <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto font-elegant-body">
+            <p className="text-responsive-lg text-gray-100 mb-6 sm:mb-8 max-w-2xl mx-auto font-elegant-body">
               Ready to discover our collections? Visit the library or explore our online catalogue 
               to find your next great read.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button variant="secondary" asChild>
                 <Link href="/collections/catalogue">
                   Browse Catalogue

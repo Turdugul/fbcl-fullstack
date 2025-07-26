@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import ScrollToTop from '@/components/ui/ScrollToTop'
 
 export const metadata: Metadata = {
   title: {
@@ -239,6 +240,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <ScrollToTop />
       </body>
     </html>
   )
