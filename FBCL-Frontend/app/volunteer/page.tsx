@@ -101,19 +101,19 @@ export default function VolunteerPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+      <section className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 sm:py-20">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-fade-in">
-              <h1 className="text-4xl text-secondary-400 md:text-6xl font-bold mb-6">
+              <h1 className="text-responsive-4xl text-secondary-400 md:text-responsive-6xl font-bold mb-4 sm:mb-6">
                 Volunteer With Us
               </h1>
-              <p className="text-xl text-gray-100 mb-8">
+              <p className="text-responsive-lg text-gray-100 mb-6 sm:mb-8">
                 Join our dedicated team of volunteers and help make a difference in our community. 
                 Whether you have a few hours or want to make a long-term commitment, 
                 we have opportunities that match your interests and schedule.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button variant="secondary" >
                 <Link href="/volunteer/apply">
                 Apply Now
@@ -128,7 +128,7 @@ export default function VolunteerPage() {
               <img
                 src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop"
                 alt="Volunteers working together"
-                className="rounded-lg shadow-2xl"
+                className="rounded-lg shadow-2xl w-full h-64 sm:h-80 md:h-96 object-cover"
               />
             </div>
           </div>
@@ -139,36 +139,36 @@ export default function VolunteerPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-bold mb-4">
               Volunteer Opportunities
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto">
               Find the perfect volunteer role that matches your skills, interests, and schedule.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {volunteerRoles.map((role, index) => (
               <Card
                 key={role.title}
-                className="group animate-fade-in hover-lift p-6"
+                className="group animate-fade-in hover-lift p-4 sm:p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex justify-center mb-4">
-                  <role.icon className="h-12 w-12 text-primary-600" />
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <role.icon className="h-8 w-8 sm:h-12 sm:w-12 text-primary-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{role.title}</h3>
-                <p className="text-gray-600 mb-4">{role.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{role.title}</h3>
+                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">{role.description}</p>
                 
-                <div className="mb-4">
-                  <div className="flex items-center space-x-2 text-sm text-gray-600 mb-3">
-                    <Clock className="h-4 w-4" />
+                <div className="mb-3 sm:mb-4">
+                  <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
+                    <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
                     <span>{role.time}</span>
                   </div>
-                  <h4 className="font-medium text-gray-900 mb-2">Skills Needed:</h4>
+                  <h4 className="font-medium text-gray-900 mb-2 text-sm sm:text-base">Skills Needed:</h4>
                   <ul className="space-y-1">
                     {role.skills.map((skill) => (
-                      <li key={skill} className="text-sm text-gray-600 flex items-center space-x-2">
+                      <li key={skill} className="text-xs sm:text-sm text-gray-600 flex items-center space-x-2">
                         <div className="w-1 h-1 bg-primary-600 rounded-full"></div>
                         <span>{skill}</span>
                       </li>
@@ -191,26 +191,26 @@ export default function VolunteerPage() {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-bold mb-4">
               Why Volunteer With Us?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto">
               Discover the many benefits of joining our volunteer team.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {benefits.map((benefit, index) => (
               <Card
                 key={benefit.title}
-                className="text-center animate-fade-in hover-lift p-6"
+                className="text-center animate-fade-in hover-lift p-4 sm:p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex justify-center mb-4">
-                  <benefit.icon className="h-12 w-12 text-primary-600" />
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <benefit.icon className="h-8 w-8 sm:h-12 sm:w-12 text-primary-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base">{benefit.description}</p>
               </Card>
             ))}
           </div>
@@ -221,33 +221,33 @@ export default function VolunteerPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-responsive-3xl md:text-responsive-4xl font-bold mb-4">
               Volunteer Success Stories
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto">
               Hear from our volunteers about their experiences and the impact they've made.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {successStories.map((story, index) => (
               <div
                 key={story.name}
-                className="card animate-fade-in hover-lift p-6"
+                className="card animate-fade-in hover-lift p-4 sm:p-6"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-3 sm:mb-4">
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 sm:mr-4"
                   />
                   <div>
-                    <h3 className="font-semibold text-gray-900">{story.name}</h3>
-                    <p className="text-sm text-primary-600">{story.role}</p>
+                    <h3 className="font-semibold text-gray-900 text-sm sm:text-base">{story.name}</h3>
+                    <p className="text-xs sm:text-sm text-primary-600">{story.role}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 italic">"{story.story}"</p>
+                <p className="text-gray-600 italic text-sm sm:text-base">"{story.story}"</p>
               </div>
             ))}
           </div>
@@ -257,84 +257,84 @@ export default function VolunteerPage() {
       {/* Application Process */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-responsive-3xl md:text-responsive-4xl font-bold mb-4 sm:mb-6">
                 How to Get Started
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-responsive-lg text-gray-600 mb-6 sm:mb-8">
                 Our volunteer application process is simple and designed to help you find 
                 the perfect opportunity to serve our community.
               </p>
               
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     1
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Submit Application</h3>
-                    <p className="text-gray-600">Fill out our online application form with your interests and availability.</p>
+                    <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Submit Application</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">Fill out our online application form with your interests and availability.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Interview</h3>
-                    <p className="text-gray-600">Meet with our volunteer coordinator to discuss opportunities and expectations.</p>
+                    <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Interview</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">Meet with our volunteer coordinator to discuss opportunities and expectations.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Training</h3>
-                    <p className="text-gray-600">Complete orientation and any role-specific training required.</p>
+                    <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Training</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">Complete orientation and any role-specific training required.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     4
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Start Volunteering</h3>
-                    <p className="text-gray-600">Begin your volunteer work and make a difference in our community!</p>
+                    <h3 className="font-semibold text-gray-900 mb-1 text-sm sm:text-base">Start Volunteering</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm">Begin your volunteer work and make a difference in our community!</p>
                   </div>
                 </div>
               </div>
             </div>
             
             <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <Card className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Ready to Apply?</h3>
-                <p className="text-gray-600 mb-6">
+              <Card className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Ready to Apply?</h3>
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
                   We're excited to welcome you to our volunteer team! Our comprehensive application form 
                   helps us understand your interests, availability, and experience to find the perfect 
                   volunteer opportunity for you.
                 </p>
                 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span className="text-gray-700">Quick and easy online application</span>
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
+                    <span className="text-gray-700 text-sm sm:text-base">Quick and easy online application</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span className="text-gray-700">Comprehensive but user-friendly</span>
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
+                    <span className="text-gray-700 text-sm sm:text-base">Comprehensive but user-friendly</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span className="text-gray-700">Secure and confidential</span>
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
+                    <span className="text-gray-700 text-sm sm:text-base">Secure and confidential</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    <span className="text-gray-700">We'll be in touch within 48 hours</span>
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
+                    <span className="text-gray-700 text-sm sm:text-base">We'll be in touch within 48 hours</span>
                   </div>
                 </div>
                 
@@ -344,7 +344,7 @@ export default function VolunteerPage() {
                   </Link>
                 </Button>
                 
-                <p className="text-sm text-gray-500 mt-4 text-center">
+                <p className="text-xs sm:text-sm text-gray-500 mt-4 text-center">
                   Questions? Contact us at{' '}
                   <a href="mailto:fbcllibrary15@gmail.com" className="text-primary-600 hover:text-primary-700 underline">
                     fbcllibrary15@gmail.com
@@ -360,14 +360,14 @@ export default function VolunteerPage() {
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl  text-secondary-400  md:text-4xl font-bold mb-4">
+            <h2 className="text-responsive-3xl text-secondary-400 md:text-responsive-4xl font-bold mb-4">
               Ready to Make a Difference?
             </h2>
-            <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-responsive-lg text-gray-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
               Join our volunteer team and help us create a more literate, connected, 
               and vibrant community. Every hour you give makes a real impact.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Button asChild className="btn-secondary">
                 <Link href="/volunteer/apply">
                   Apply Now
