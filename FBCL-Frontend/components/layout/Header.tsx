@@ -3,20 +3,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, BookOpen, ChevronDown } from 'lucide-react'
+import { Menu, X, BookOpen } from 'lucide-react'
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { 
-    name: 'Collections', 
-    href: '/collections',
-    submenu: [
-      { name: 'Catalogue', href: '/collections/catalogue' },
-      { name: 'New Books', href: '/collections/new-books' },
-      { name: 'Guides', href: '/collections/guides' },
-    ]
-  },
+  { name: 'Catalogue', href: '/catalogue' },
   { name: 'Events', href: '/events' },
   { name: 'Testimonials', href: '/testimonials' },
   { name: 'Volunteer', href: '/volunteer' },
@@ -28,7 +20,6 @@ export default function Header() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,29 +29,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close submenu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement
-      if (!target.closest('.submenu-container')) {
-        setActiveSubmenu(null)
-      }
-    }
-
-    document.addEventListener('click', handleClickOutside)
-    return () => document.removeEventListener('click', handleClickOutside)
-  }, [])
-
   const isActive = (href: string) =>
     pathname === href || (href !== '/' && pathname.startsWith(href))
-
-  const handleSubmenuToggle = (name: string) => {
-    setActiveSubmenu(activeSubmenu === name ? null : name)
-  }
-
-  const handleSubmenuItemClick = () => {
-    setActiveSubmenu(null)
-  }
 
   return (
     <header
@@ -91,61 +61,22 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
-              <div key={item.name} className="relative group submenu-container">
-                {item.submenu ? (
-                  <div>
-                    <button
-                      onClick={() => handleSubmenuToggle(item.name)}
-                      className={`nav-link flex items-center space-x-1 focus:outline-none ${
-                        isActive(item.href) 
-                          ? 'font-elegant-heading text-secondary-500' 
-                          : 'text-primary-light hover:text-accent'
-                      }`}
-                    >
-                      <span>{item.name}</span>
-                      <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-                    </button>
-                    <span
-                      className={`nav-underline ${
-                        isActive(item.href) ? 'bg-secondary-500 nav-underline-active' : 'nav-underline-hover'
-                      }`}
-                    ></span>
-                    
-                    {/* Submenu */}
-                    {activeSubmenu === item.name && (
-                      <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg animate-slide-down">
-                        <div className="py-2">
-                          {item.submenu.map((subitem) => (
-                            <Link
-                              key={subitem.name}
-                              href={subitem.href}
-                              className="block px-4 py-2 text-sm text-primary-light hover:bg-primary-50 hover:text-accent transition-colors duration-200 focus:outline-none"
-                              onClick={handleSubmenuItemClick}
-                            >
-                              {subitem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`nav-link focus:outline-none ${
-                      isActive(item.href) 
-                        ? 'font-elegant-heading text-secondary-500' 
-                        : 'text-primary-light hover:text-accent'
+              <div key={item.name} className="relative group">
+                <Link
+                  href={item.href}
+                  className={`nav-link focus:outline-none ${
+                    isActive(item.href) 
+                      ? 'font-elegant-heading text-secondary-500' 
+                      : 'text-primary-light hover:text-accent'
+                  }`}
+                >
+                  {item.name}
+                  <span
+                    className={`nav-underline ${
+                      isActive(item.href) ? 'bg-secondary-500 nav-underline-active' : 'nav-underline-hover'
                     }`}
-                  >
-                    {item.name}
-                    <span
-                      className={`nav-underline ${
-                        isActive(item.href) ? 'bg-secondary-500 nav-underline-active' : 'nav-underline-hover'
-                      }`}
-                    ></span>
-                  </Link>
-                )}
+                  ></span>
+                </Link>
               </div>
             ))}
           </div>
@@ -166,59 +97,20 @@ export default function Header() {
           <div className="lg:hidden bg-white border-t border-gray-200 animate-slide-down">
             <div className="px-4 py-6 space-y-2">
               {navigation.map((item) => (
-                <div key={item.name}>
-                  {item.submenu ? (
-                    <div className="submenu-container">
-                      <button
-                        onClick={() => handleSubmenuToggle(item.name)}
-                        className={`w-full text-left px-4 py-3 rounded-none font-elegant-body font-medium transition-colors text-sm flex items-center justify-between focus:outline-none ${
-                          isActive(item.href)
-                            ? 'bg-primary-50 text-secondary-500 border-l-4 border-secondary-500' 
-                            : 'text-primary-light hover:bg-gray-50 hover:text-accent'
-                        }`}
-                      >
-                        <span className={isActive(item.href) ? 'font-elegant-heading text-secondary-500' : ''}>
-                          {item.name}
-                        </span>
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
-                          activeSubmenu === item.name ? 'rotate-180' : ''
-                        }`} />
-                      </button>
-                      
-                      {activeSubmenu === item.name && (
-                        <div className="ml-4 mt-2 space-y-1 animate-slide-down">
-                          {item.submenu.map((subitem) => (
-                            <Link
-                              key={subitem.name}
-                              href={subitem.href}
-                              className="block px-4 py-2 text-sm text-secondary-dark hover:bg-gray-50 hover:text-accent transition-colors duration-200 focus:outline-none"
-                              onClick={() => {
-                                setIsOpen(false)
-                                setActiveSubmenu(null)
-                              }}
-                            >
-                              {subitem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-3 rounded-none font-elegant-body font-medium transition-colors text-sm focus:outline-none ${
-                        isActive(item.href)
-                          ? 'bg-primary-50 text-secondary-500 border-l-4 border-secondary-500' 
-                          : 'text-primary-light hover:bg-gray-50 hover:text-accent'
-                      }`}
-                    >
-                      <span className={isActive(item.href) ? 'font-elegant-heading text-secondary-500' : ''}>
-                        {item.name}
-                      </span>
-                    </Link>
-                  )}
-                </div>
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3 rounded-none font-elegant-body font-medium transition-colors text-sm focus:outline-none ${
+                    isActive(item.href)
+                      ? 'bg-primary-50 text-secondary-500 border-l-4 border-secondary-500' 
+                      : 'text-primary-light hover:bg-gray-50 hover:text-accent'
+                  }`}
+                >
+                  <span className={isActive(item.href) ? 'font-elegant-heading text-secondary-500' : ''}>
+                    {item.name}
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

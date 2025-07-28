@@ -138,6 +138,22 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+          {/* Developer Credit */}
+          <div className="text-center mt-6 pt-4 border-t border-gray-800">
+            <p className="text-gray-400 text-sm font-elegant-body">
+              Made with{' '}
+              <span className="text-red-400 animate-pulse">❤️</span>
+              {' '}by{' '}
+              <a
+                href="https://www.linkedin.com/in/turdugul"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-warm hover:text-white transition-all duration-300 font-medium hover:scale-105 inline-block"
+              >
+                Turdugul
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
